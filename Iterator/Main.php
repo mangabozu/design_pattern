@@ -1,9 +1,6 @@
 <?php
 
-namespace Iterator;
-
-use Iterator\BookShelf;
-use Iterator\Book;
+require_once dirname(__FILE__) . '\Book.php';
 
 class Main
 {
