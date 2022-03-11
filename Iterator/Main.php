@@ -12,26 +12,27 @@ require_once dirname(__FILE__) . '\BookShelf.php';
  */
 class Main
 {
-    // コンストラクタ
-    public function __construct()
+    /**
+     * コンストラクタ
+     *
+     * @param int $maxBooks
+     * @param array $books
+     * @return void
+     */
+    public function __construct(int $maxBooks, array $books = [])
     {
         // 本棚に置く本の数をセット
-        $bookShelf = new BookShelf(4);
+        $bookShelf = new BookShelf($maxBooks);
 
         // 本棚に置く本をセット
-        $bookShelf->appendBook(new Book('ドラゴンボール'));
-        $bookShelf->appendBook(new Book('スラムダンク'));
-        $bookShelf->appendBook(new Book('ONEPIECE'));
-        $bookShelf->appendBook(new Book('NARUTO'));
-        
+        foreach ($books as $book) {
+            $bookShelf->appendBook(new Book($book));
+        }
         // 本棚にある本の数え上げを行う
         $iterator = $bookShelf->iterator();
 
-        // $bookShelf->appendBook(new Book('幽遊白書'));
-
         // 次の本が存在するかチェック
-        while ($iterator->hasNext())
-        {
+        while ($iterator->hasNext()) {
             // 次の本を取得し、名前を表示
             echo $iterator->next()->getName() . PHP_EOL;
         }
@@ -39,4 +40,4 @@ class Main
 }
 
 // 処理実行
-new Main;
+new Main(4, ['ドラゴンボール', 'スラムダンク', 'ONEPIECE', 'NARUTO', '幽遊白書']);

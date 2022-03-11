@@ -20,14 +20,21 @@ class BookShelf implements Aggregate
     private $last = 0;
 
     /**
+     * 本の上限
+     *
+     * @var int
+     */
+    private $maxSize = 0;
+
+    /**
      * コンストラクタ
      *
      * @param int $maxSize
      */
     public function __construct(int $maxSize)
     {
-        // 本棚に億本の総数をセット
-        $this->books[] = new Book($maxSize);
+        // 本棚に置く本の総数をセット
+        $this->maxSize = $maxSize;
     }
 
     /**
@@ -49,6 +56,9 @@ class BookShelf implements Aggregate
      */
     public function appendBook(Book $book) : void
     {
+        // 本棚の上限に達したら本を置かない
+        if ($this->last === $this->maxSize) return;
+
         // 本棚の最終に本を置く
         $this->books[$this->last] = $book;
         // 本の総数を加算

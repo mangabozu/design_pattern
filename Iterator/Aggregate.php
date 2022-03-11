@@ -7,6 +7,8 @@ interface Aggregate
 {
     /**
      * 集合体に対応するIteratorを1個作成する
+     *
+     * @return object
      */
-    public function iterator() : object;
+    public function iterator();
 }
