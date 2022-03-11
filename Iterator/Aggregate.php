@@ -1,7 +1,5 @@
 <?php
 
-namespace Iterator;
-
 /**
  * 集合体を表すインターフェイス
  */

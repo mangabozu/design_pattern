@@ -1,7 +1,5 @@
 <?php
 
-namespace Iterator;
-
 /**
  * 本棚を表現しているクラス
  */
@@ -15,21 +13,27 @@ class BookShelf implements Aggregate
     private $books = [];
 
     /**
-     *
+     * 本の総数
      *
      * @var int
      */
     private $last = 0;
 
+    /**
+     * コンストラクタ
+     *
+     * @param int $maxSize
+     */
     public function __construct(int $maxSize)
     {
+        // 本棚に億本の総数をセット
         $this->books[] = new Book($maxSize);
     }
 
     /**
-     * Undocumented function
+     * 指定されたインデックスの本を取得
      *
-     * @param integer $index
+     * @param int $index
      * @return Book
      */
     public function getBookAt(int $index) : Book
@@ -38,19 +42,21 @@ class BookShelf implements Aggregate
     }
 
     /**
-     * Undocumented function
+     * 本棚の後ろに本を置く
      *
      * @param Book $book
      * @return void
      */
     public function appendBook(Book $book) : void
     {
+        // 本棚の最終に本を置く
         $this->books[$this->last] = $book;
+        // 本の総数を加算
         $this->last++;
     }
 
     /**
-     * Undocumented function
+     * 現在本棚に置いてある本の総数を返す
      *
      * @return int
      */
@@ -60,7 +66,7 @@ class BookShelf implements Aggregate
     }
 
     /**
-     * 集合体に対応するIteratorを1個作成する
+     * 本棚にある本の数え上げインスタンスを生成
      *
      * @return BookShelfIterator
      */

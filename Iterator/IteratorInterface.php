@@ -1,11 +1,8 @@
 <?php
-
-namespace Iterator;
-
 /**
  * 要素の数え上げや、ループ変数の役割を果たす
  */
-interface Iterator
+interface IteratorInterface
 {
     /**
      * 次の要素が存在するかチェック

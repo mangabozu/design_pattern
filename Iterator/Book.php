@@ -1,7 +1,5 @@
 <?php
 
-namespace Iterator;
-
 /**
  * 本を表すクラス
  */
@@ -15,7 +13,7 @@ class Book
     private $name;
 
     /**
-     * インスタンス初期化時に本の名前をセット
+     * コンストラクタ
      *
      * @param string $name
      */
