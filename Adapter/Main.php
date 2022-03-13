@@ -9,6 +9,11 @@ require_once dirname(__FILE__) . '\PrintBannerInheritance.php';
 
 /**
  * Adapter実行クラス
+ * 
+ * AdapterパターンはWrapper（ラッパー）を行うデザインパターン
+ * ・クラスによるAdapterパターン（継承を使用したもの）
+ * ・インスタンスによるAdapterパターン（委譲を使用したもの）
+ * 上記２パターンが存在する
  */
 class Main
 {

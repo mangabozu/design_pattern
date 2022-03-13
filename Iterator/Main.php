@@ -9,6 +9,9 @@ require_once dirname(__FILE__) . '\BookShelf.php';
 
 /**
  * Iterator実行クラス
+ * 
+ * Iteratorパターンは、何かがたくさん集まっているときに
+ * それを順番に指し示していき、全体をスキャンしていく処理を行うデザインパターン
  */
 class Main
 {
