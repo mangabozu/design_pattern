@@ -20,23 +20,19 @@ class Main
      */
     public function __construct(string $type)
     {
+        $builder = null;
+
         // プレーンテキスト
-        if ($type === 'text') {
-            $textBuilder = new TextBuilder;
-            $director = new Director($textBuilder);
-            $director->exce();
-            $result = $textBuilder->getResult();
-            echo $result;
-
+        if ($type === 'text') $builder = new TextBuilder;
         // HTML
-        } elseif ($type === 'html') {
-            $htmlBuilder = new HTMLBuilder;
-            $director = new Director($htmlBuilder);
-            $director->exce();
-            $result = $htmlBuilder->getResult();
-            echo $result;
+        if ($type === 'html') $builder = new HTMLBuilder;
 
-        // その他
+        // Builderインスタンスが存在する場合は処理を実行
+        if (isset($builder)) {
+            $director = new Director($builder);
+            $director->exce();
+            $result = $builder->getResult();
+            echo $result;
         } else {
             echo '該当タイプが存在しません。';
         }
