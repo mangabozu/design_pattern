@@ -5,11 +5,21 @@
  */
 class ListTray extends Tray
 {
+    /**
+     * コンストラクタ
+     *
+     * @param string $caption
+     */
     public function __construct(string $caption)
     {
         parent::__construct($caption);
     }
 
+    /**
+     * HTMLでリストを生成
+     *
+     * @return string
+     */
     public function makeHTML() : string
     {
         $buffer = [];

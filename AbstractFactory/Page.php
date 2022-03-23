@@ -13,14 +13,14 @@ abstract class Page
     protected $title;
 
     /**
-     * タイトル
+     * 著者
      *
      * @var string
      */
     protected $author;
 
     /**
-     * タイトル
+     * コンテンツ
      *
      * @var array
      */
@@ -38,6 +38,12 @@ abstract class Page
         $this->author = $author;
     }
 
+    /**
+     * ページ生成に使用するコンテンツを追加
+     *
+     * @param Item $item
+     * @return void
+     */
     public function add(Item $item) : void
     {
         $this->content[] = $item;

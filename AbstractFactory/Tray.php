@@ -23,7 +23,7 @@ abstract class Tray extends Item
     }
 
     /**
-     *
+     * 要素をセット
      *
      * @param Item $item
      * @return void

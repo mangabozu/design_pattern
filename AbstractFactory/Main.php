@@ -12,12 +12,10 @@ require_once dirname(__FILE__) . '\ListTray.php';
 require_once dirname(__FILE__) . '\ListPage.php';
 
 /**
- * Prototype実行クラス
+ * AbstractFactory実行クラス
  *
- * 下記の場合に使用するデザインパターン
- * ・種類が多すぎてクラスにまとめられない場合
- * ・クラスからのインスタンス生成が難しい場合
- * ・フレームワークと生成するインスタンスを分けたい場合
+ * インスタンスの生成を専門に行うクラスを用意することで、
+ * 整合性を必要とされる一連のオブジェクト群を間違いなく生成するためのデザインパターン
  */
 class Main
 {
@@ -56,7 +54,6 @@ class Main
         $page->add($traySearch);
 
         $page->output();
-
     }
 }
 

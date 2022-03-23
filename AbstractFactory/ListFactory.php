@@ -18,7 +18,7 @@ class ListFactory extends AbstractFactory
     }
 
     /**
-     * リンクを生成
+     * リストを生成
      *
      * @param string $caption
      * @return Tray
@@ -29,7 +29,7 @@ class ListFactory extends AbstractFactory
     }
 
     /**
-     * リンクを生成
+     * ページを生成
      *
      * @param string $title
      * @param string $author

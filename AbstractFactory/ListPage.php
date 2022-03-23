@@ -5,11 +5,22 @@
  */
 class ListPage extends Page
 {
+    /**
+     * コンストラクタ
+     *
+     * @param string $title
+     * @param string $author
+     */
     public function __construct(string $title, string $author)
     {
         parent::__construct($title, $author);
     }
 
+    /**
+     * HTMLでページを生成
+     *
+     * @return string
+     */
     public function makeHTML() : string
     {
         $buffer = [];
@@ -22,6 +33,7 @@ class ListPage extends Page
         foreach ($this->content AS $item) {
             $buffer[] = $item->makeHTML();
         }
+        
         $buffer[] = '</ul>' . PHP_EOL;
         $buffer[] = '<hr><address>' . $this->author . '</address>' . PHP_EOL;
         $buffer[] = '</body></html>' . PHP_EOL;
