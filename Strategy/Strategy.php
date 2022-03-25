@@ -3,7 +3,8 @@
 /**
  * じゃんけんの「戦略」を表すインターフェイス
  */
-class Strategy
+interface Strategy
 {
-
+    public function nextHand() : Hand;
+    public function study(bool $win) : void;
 }
