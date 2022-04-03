@@ -20,11 +20,37 @@ class Main
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($seed1, $seed2)
     {
+        // プレイヤーを設定
+        $player1 = new Player('Taro', new WinningStrategy($seed1));
+        $player2 = new Player('Hana', new ProbStrategy($seed2));
 
+        // 100回じゃんけんを行う
+        for ($i = 0; $i < 100; $i++) {
+            // 各プレーヤーの次の手を取得
+            $nextHand1 = $player1->nextHand();
+            $nextHand2 = $player2->nextHand();
+
+            if ($nextHand1->isStrongerThan($nextHand2)) {
+                echo 'Winner:' . $player1->name . PHP_EOL;
+                $player1->win();
+                $player2->lose();
+            } elseif ($nextHand2->isStrongerThan($nextHand1)) {
+                echo 'Winner:' . $player2->name . PHP_EOL;
+                $player1->lose();
+                $player2->win();
+            } else {
+                echo 'Even...' . PHP_EOL;
+                $player1->even();
+                $player2->even();
+            }
+            echo 'Total result' . PHP_EOL;
+            echo $player1->toString() . PHP_EOL;
+            echo $player2->toString() . PHP_EOL;
+        }
     }
 }
 
 // 処理実行
-new Main();
+new Main(1,2);
